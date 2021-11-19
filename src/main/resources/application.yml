@@ -1,0 +1,13 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: imgur-service
+          uri: http://imgur-service:8091
+          predicates:
+            - Path= /imgur/*, /keycloak/*
